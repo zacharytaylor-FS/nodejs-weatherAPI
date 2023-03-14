@@ -11,7 +11,7 @@ app.get('/weather', (req, res, next) => {
 })
 
 // Todo router middle
-app.use('/forecast', router)
+app.use('/current', router)
 
 // Todo add middleware to handle errors and bad url paths
 app.use((req, res, next) => {
