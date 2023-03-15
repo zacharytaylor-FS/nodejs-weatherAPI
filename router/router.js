@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
   // console.log(location)
   dogService()
     .then(result => {
-      console.log(result.data.message)
+      console.log(result.data)
       res.status(200).json(result.data.message)
     })
     .catch(error => {

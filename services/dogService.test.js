@@ -1,5 +1,6 @@
 const getDogImage = require('./dogService');
 
+jest.mock('./dogService.js')
 describe('Test Dog Service', () => {
   test('should show a new dog image on request', async () => {
     const result = await getDogImage();
