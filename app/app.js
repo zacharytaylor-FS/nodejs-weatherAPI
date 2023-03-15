@@ -1,5 +1,6 @@
 const express = require('express');
 const router = require('../router/router')
+const genderRouter = require('../router/genderRouter')
 const app = express();
 
 //* use middleware
@@ -12,7 +13,7 @@ app.get('/api', (req, res, next) => {
 
 // Todo router middle
 app.use('/dog', router)
-
+app.use('/gender', genderRouter)
 // Todo add middleware to handle errors and bad url paths
 app.use((req, res, next) => {
   const error = new Error("URL NOT FOUND");
