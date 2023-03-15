@@ -1,17 +1,17 @@
 const express = require('express');
-
+const router = require('../router/router')
 const app = express();
 
 //* use middleware
 app.use(express.json());
 
 //* http://localhost:80
-app.get('/weather', (req, res, next) => {
+app.get('/api', (req, res, next) => {
   res.status(200).json({message: `Service is up`})
 })
 
 // Todo router middle
-app.use('/current', router)
+app.use('/dog', router)
 
 // Todo add middleware to handle errors and bad url paths
 app.use((req, res, next) => {
