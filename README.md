@@ -2,7 +2,9 @@
 
 ## NodeJS Backend Service(s):
 
-### Backend Service return random user data **/user**
+### Backend Service return random user data
+
+#### **/user**
 
 -   Return up to 5000 [RandomUser](https://randomuser.me/api/)s.
 -   Include/Exclude certain data fields which can SAVE time by not using intensive CPU fields.
@@ -14,12 +16,15 @@
     -   and many more...
 
     //ONLY return name,gender,nat
+
     `https://randomuser.me/api/?inc=gender,name,nat`
 
     //EXCLUDE login
+
     `https://randomuser.me/api/?exc=login`
 
     // Download results with the correct format extension
+
     `https://randomuser.me/api/?results=100&nat=us,gb&format=csv&dl`
 
 ### Backend Service to determine gender, age, and nationality based on a given name
