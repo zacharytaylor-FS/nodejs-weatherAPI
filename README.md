@@ -25,6 +25,8 @@
 ### Backend Service to determine gender, age, and nationality based on a given name
 
 -   **/gender** - Let your name determine your gender? []
+-   **/nationalize** - Let your name determine your nationality? []
+-   **/age** - Let your name determine your age? []
 
 -   FREE up to 1000 names/day
 
