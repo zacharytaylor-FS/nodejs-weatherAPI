@@ -14,13 +14,15 @@ app.get('/', (req, res, next) => {
 // Todo router middle
 app.use('/dog', router)
 app.use('/gender', genderRouter)
+
+
 // Todo add middleware to handle errors and bad url paths
+
 app.use((req, res, next) => {
   const error = new Error("URL NOT FOUND");
   error.status = 404;
   next(error)
 });
-
 
 app.use((error, req, res, next) => {
   res.status(error.status || 500).json({
