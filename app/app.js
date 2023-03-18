@@ -1,13 +1,13 @@
 const express = require('express');
-const router = require('../router/router')
-const genderRouter = require('../router/genderRouter')
+const router = require('../router/router');
+const genderRouter = require('../router/genderRouter');
 const app = express();
 
 //* use middleware
 app.use(express.json());
 
 //* http://localhost:80
-app.get('/api', (req, res, next) => {
+app.get('/', (req, res, next) => {
   res.status(200).json({message: `Service is up`})
 })
 
