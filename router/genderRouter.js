@@ -63,6 +63,10 @@
  })
  
  genderRouter.post('/:id ', (req, res, next) => {
+  const id = id;
+  const name = req.body.name;
+  const count = req.body.count;
+  const probability = req.body.probability;
   getGender(req.params.id)
     .then(result => {
       console.log(result.data)
