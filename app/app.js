@@ -1,6 +1,8 @@
 const express = require('express');
 const router = require('../router/router');
 const genderRouter = require('../router/genderRouter');
+const ageRouter = require('../router/ageRouter')
+const nationalizeRouter = require('../router/nationalizeRouter')
 const app = express();
 
 //* use middleware
@@ -12,8 +14,10 @@ app.get('/', (req, res, next) => {
 })
 
 // Todo router middle
-app.use('/dog', router)
+app.use('/users', router)
 app.use('/gender', genderRouter)
+app.use('/age', ageRouter)
+app.use('/nationalize', nationalizeRouter)
 
 
 // Todo add middleware to handle errors and bad url paths
