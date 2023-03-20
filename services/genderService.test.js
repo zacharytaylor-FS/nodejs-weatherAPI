@@ -1,9 +1,10 @@
 const getGender = require('./genderService');
+require('dotenv').config();
 
 jest.mock('./genderService.js')
 describe('Gender Service Test', () => {
-  test('should show gender, probability, and count of user(s) name', async() =>{ 
+  test('should show gender of user(s) name', async() =>{ 
     const result = await getGender;
-    expect(result.data.count).not.toEqual(64) 
+    expect(result).toEqual(result.data.gender) 
   })
 })
