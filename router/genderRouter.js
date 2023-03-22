@@ -3,13 +3,13 @@ const { getGender, getGenderById } = require("../services/genderService");
 const genderRouter = express.Router();
 
 genderRouter.get("/", (req, res, next) => {
-  const gender = req.body.gender;
+  // const gender = req.body.gender;
   getGender()
     .then((result) => {
       console.log(result.data);
       res.status(200).json({
         // name: result.data.name,
-        gender: result.data.gender,
+        // gender: result.data.gender,
         // probability: result.data.probability,
         // count: result.data.count
       });
@@ -27,15 +27,17 @@ genderRouter.get("/", (req, res, next) => {
 genderRouter.get("/:id", (req, res, next) => {
   const gender = req.body.gender;
   const id= parseInt(req.params.id)
-  getGenderById(count_id)
+  getGenderById(id)
     .then((result) => {
       console.log(result.data);
       res.status(200).json({
         id:id,
-        // name: result.data.name,
+        data:{
+        name: result.data.name,
         gender: result.data.gender,
-        // probability: result.data.probability,
-        // count: result.data.count
+        probability: result.data.probability,
+        count: result.data.count
+        }
       });
     })
     .catch((error) => {
@@ -50,7 +52,7 @@ genderRouter.get("/:id", (req, res, next) => {
 
 genderRouter.post("/", (req, res, next) => {
   const id = parseInt(req.params.id)
-  const count = req.body.count_id;
+  const count = req.body.count;
   const gender = req.body.gender;
   const name = req.body.name;
   const probability = req.body.name;
@@ -59,7 +61,7 @@ genderRouter.post("/", (req, res, next) => {
       console.log(result.data);
       res.status(201).json({
         // method: req.method,
-        id: id,
+        id: ++id,
         data:{
         name: result.data.name,
         count: result.data.count,
@@ -80,6 +82,7 @@ genderRouter.post("/", (req, res, next) => {
       });
     });
 });
+
 genderRouter.put("/:id", (req, res, next) => {
   const id = parseInt(req.params.id)
   const count = req.body.count;
@@ -91,11 +94,13 @@ genderRouter.put("/:id", (req, res, next) => {
       console.log(result.data);
       res.status(200).json({
         // method: req.method,
-        data:{
-        id: result.data.id,
+        data:
+        {
+        id: ++result.data.id,
         name: result.data.name,
         count: result.data.count,
-        probability: result.data.probability},
+        probability: result.data.probability
+        },
         metadata : {
           host: res.host,
           method: req.method,
