@@ -6,9 +6,11 @@ router.get("/", (req, res, next) => {
   // const location = req.body.location;
   // console.log(location)
   userService()
-    .then((results) => {
-      console.log(results.data);
-      res.status(200).json(results.data);
+    .then((users) => {
+      console.log(users.data);
+      res.status(200).json({
+        users: users.data.results
+      });
     })
     .catch((error) => {
       res.status(501).json({
