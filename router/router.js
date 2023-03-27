@@ -9,6 +9,7 @@ router.get("/", (req, res, next) => {
     .then((users) => {
       console.log(users.data);
       res.status(200).json({
+        message: "GET ALL users",
         users: users.data.results
       });
     })
@@ -22,4 +23,8 @@ router.get("/", (req, res, next) => {
     });
 });
 
+
+router.get("/:gender", (req, res, next) => {
+
+})
 module.exports = router;

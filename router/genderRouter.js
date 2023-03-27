@@ -25,19 +25,15 @@ genderRouter.get("/", (req, res, next) => {
 });
 
 genderRouter.get("/:id", (req, res, next) => {
-  const gender = req.body.gender;
+
   const id= parseInt(req.params.id)
   getGenderById(id)
     .then((result) => {
       console.log(result.data);
       res.status(200).json({
-        id:id,
-        data:{
-        name: result.data.name,
-        gender: result.data.gender,
-        probability: result.data.probability,
-        count: result.data.count
-        }
+        id:result.data._id,
+        data:result.data
+      
       });
     })
     .catch((error) => {
@@ -56,7 +52,7 @@ genderRouter.post("/", (req, res, next) => {
   const gender = req.body.gender;
   const name = req.body.name;
   const probability = req.body.name;
-  getGender()
+  getGenderBy()
     .then((result) => {
       console.log(result.data);
       res.status(201).json({

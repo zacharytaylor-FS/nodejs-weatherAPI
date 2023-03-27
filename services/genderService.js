@@ -5,8 +5,8 @@ const getGender = async () => {
   console.log("Real Batch Gender Service");
   return await axios.get(`${process.env.genderBATCHURL}`);
 };
-const getGenderByName = async (name) => {
+const getGenderById = async (id) => {
   console.log("Real Gender Service");
-  return await axios.get(`${process.env.genderURL}${name}`);
+  return await axios.get(`${process.env.genderURL}${id}`);
 };
-module.exports = { getGender, getGenderByName };
+module.exports = { getGender, getGenderById };
