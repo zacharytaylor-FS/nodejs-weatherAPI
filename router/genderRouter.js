@@ -1,5 +1,5 @@
 const express = require("express");
-const { getGender, getGenderById } = require("../services/genderService");
+const { getGender, getGenderByName } = require("../services/genderService");
 const genderRouter = express.Router();
 
 genderRouter.get("/", (req, res, next) => {
@@ -24,14 +24,13 @@ genderRouter.get("/", (req, res, next) => {
     });
 });
 
-genderRouter.get("/:id", (req, res, next) => {
-
-  const id= parseInt(req.params.id)
-  getGenderById(id)
+genderRouter.get("/byName/:name", (req, res, next) => {
+const name = req.params.name
+  getGenderByName(name)
     .then((result) => {
       console.log(result.data);
       res.status(200).json({
-        id:result.data._id,
+        result,
         data:result.data
       
       });
