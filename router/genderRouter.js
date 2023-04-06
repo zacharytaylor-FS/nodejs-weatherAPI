@@ -8,10 +8,8 @@ genderRouter.get("/", (req, res, next) => {
     .then((result) => {
       console.log(result.data);
       res.status(200).json({
-        // name: result.data.name,
-        // gender: result.data.gender,
-        // probability: result.data.probability,
-        // count: result.data.count
+        data: result.data[0],
+       
       });
     })
     .catch((error) => {
@@ -30,7 +28,7 @@ const name = req.params.name
     .then((result) => {
       console.log(result.data);
       res.status(200).json({
-        result,
+        result:result.data,
         data:result.data
       
       });
@@ -45,13 +43,11 @@ const name = req.params.name
     });
 });
 
-genderRouter.post("/", (req, res, next) => {
+genderRouter.post("/:name/:id", (req, res, next) => {
   const id = parseInt(req.params.id)
-  const count = req.body.count;
-  const gender = req.body.gender;
-  const name = req.body.name;
-  const probability = req.body.name;
-  getGenderBy()
+  const name = req.params.name;
+
+  getGenderByName(name)
     .then((result) => {
       console.log(result.data);
       res.status(201).json({
